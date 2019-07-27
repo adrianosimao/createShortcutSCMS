@@ -8,7 +8,7 @@ import os
 extensions = ['.torrent']
 
 
-commande = 'transmission-remote  --auth transmission:transmission -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/'
+commande = 'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/'
 suppression = True
 chemins_a_verifier = ['Jeux/']
 
