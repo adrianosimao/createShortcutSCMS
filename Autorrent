@@ -1,0 +1,42 @@
+#!/usr/bin/python
+# coding: utf-8
+
+from glob import glob
+import os
+
+# Paramètres du script
+extensions = ['.torrent']
+
+
+commande = 'transmission-remote  --auth transmission:transmission -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/'
+suppression = True
+chemins_a_verifier = ['Jeux/']
+
+# Vérifier la présence de fichiers dans les dossiers
+#
+print('Démarrage...')
+
+# Pour chaque chemin a verifier
+for chemin_dossier in chemins_a_verifier:
+    print('Vérification chemin "{}"...'.format(chemin_dossier))
+    
+    # Pour chaque type d'extension recherché
+    for extension in extensions:
+        print('\tVérification extension "{}"...'.format(extension))
+        
+        # On récupère une liste des fichiers avec l'extension
+        fichiers_trouves_avec_extensions = glob(chemin_dossier + '*' + extension)
+        print('\t{} fichiers trouvés.'.format(len(fichiers_trouves_avec_extensions)))
+        
+    # Pour chaque fichiers trouvé, 
+    for fichier in fichiers_trouves_avec_extensions:
+
+        print('\tExecution de la commande pour le fichier "{}"...'.format(fichier))
+        
+        # On execute la commande
+        print(commande + fichier)
+        os.system(commande  + fichier)
+
+        if suppression:
+            print('\tSuppression du fichier...')
+            os.remove(fichier)
