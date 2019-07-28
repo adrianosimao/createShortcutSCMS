@@ -7,20 +7,25 @@ import os
 # Paramètres du script
 extensions = ['.torrent']
 
+dossiers_commandes = {
+    'Jeux/': 
+        'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/',
+    'Chemin2/':
+        'echo commande2'}
 
-commande = 'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/'
+# commande = 'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/'
 suppression = True
-chemins_a_verifier = ['Jeux/']
+# chemins_a_verifier = ['Jeux/']
 
 # Vérifier la présence de fichiers dans les dossiers
 #
 print('Démarrage...')
 
 # Pour chaque chemin a verifier
-for chemin_dossier in chemins_a_verifier:
+for chemin_dossier in dossiers_commandes.keys():
     print('Vérification chemin "{}"...'.format(chemin_dossier))
     
-    # Pour chaque type d'extension recherché
+    # Pour chaque type d'extension à rechercher
     for extension in extensions:
         print('\tVérification extension "{}"...'.format(extension))
         
@@ -32,6 +37,8 @@ for chemin_dossier in chemins_a_verifier:
     for fichier in fichiers_trouves_avec_extensions:
 
         print('\tExecution de la commande pour le fichier "{}"...'.format(fichier))
+        
+        commande = dossiers_commandes[chemin_dossier]
         
         # On execute la commande
         print(commande + fichier)
