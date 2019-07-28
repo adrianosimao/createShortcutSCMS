@@ -3,6 +3,7 @@
 
 from glob import glob
 import os
+import subprocess
 
 # Paramètres du script
 extensions = ['.torrent']
@@ -38,11 +39,17 @@ for chemin_dossier in dossiers_commandes.keys():
 
         print('\tExecution de la commande pour le fichier "{}"...'.format(fichier))
         
+        # On récupère la commane
         commande = dossiers_commandes[chemin_dossier]
         
+        # On la transforme en liste d'arguments
+        commande = commande.split(' ')
+        
+        # On ajoute à la fin le nom du fichier
+        commande.append(fichier)
+        
         # On execute la commande
-        print(commande + fichier)
-        os.system(commande  + fichier)
+        subprocess.call(['C:\\Temp\\a b c\\Notepad.exe', 'C:\\test.txt'])
 
         if suppression:
             print('\tSuppression du fichier...')
