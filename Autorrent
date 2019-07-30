@@ -44,7 +44,7 @@ for chemin_dossier in dossiers_commandes.keys():
         commande = commande.split(' ')
         
         # On ajoute à la fin le nom du fichier
-        commande[-1] = commande[-1] + fichier
+        commande[-1] = '"{}{}"'.format(commande[-1], fichier)
         
         # On execute la commande
         subprocess.call(commande)
