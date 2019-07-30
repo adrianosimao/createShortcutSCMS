@@ -49,7 +49,7 @@ for chemin_dossier in dossiers_commandes.keys():
         commande.append(fichier)
         
         # On execute la commande
-        subprocess.call(['C:\\Temp\\a b c\\Notepad.exe', 'C:\\test.txt'])
+        subprocess.call(commande)
 
         if suppression:
             print('\tSuppression du fichier...')
