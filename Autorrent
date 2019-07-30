@@ -14,9 +14,7 @@ dossiers_commandes = {
     'Chemin2/':
         'echo commande2'}
 
-# commande = 'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/'
 suppression = True
-# chemins_a_verifier = ['Jeux/']
 
 # Vérifier la présence de fichiers dans les dossiers
 #
@@ -46,7 +44,7 @@ for chemin_dossier in dossiers_commandes.keys():
         commande = commande.split(' ')
         
         # On ajoute à la fin le nom du fichier
-        commande.append(fichier)
+        commande[-1] = commande[-1] + fichier
         
         # On execute la commande
         subprocess.call(commande)
