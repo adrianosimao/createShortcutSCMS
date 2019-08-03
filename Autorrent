@@ -9,8 +9,8 @@ import subprocess
 extensions = ['.torrent']
 
 dossiers_commandes = {
-    'Jeux/': 
-        'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a /home/adriano/srv_apache/up.scms.ovh/',
+    '/home/adriano/srv_apache/repository.scms.ovh/Jeux/': 
+        'transmission-remote  --auth **:** -w /home/adriano/srv_apache/repository.scms.ovh/Jeux -a ',
     'Chemin2/':
         'echo commande2'}
 
